@@ -1,0 +1,25 @@
+lm_type: meta-llama/Llama-3.2-1B-Instruct
+retrieval_type: bm25
+test_dataset_name: talkpl-ai/TalkPlayData-Challenge-Blind-A
+item_db_name: talkpl-ai/TalkPlayData-Challenge-Track-Metadata
+user_db_name: talkpl-ai/TalkPlayData-Challenge-User-Metadata
+track_split_types:
+- all_tracks
+user_split_types:
+- all_users
+corpus_types:
+- track_name
+- artist_name
+- album_name
+- tag_list
+- release_date
+retrieve_topk: 100
+final_topk: 20
+reranker_type: embedding
+reranker_kwargs:
+  embedding_field: cf-bpr
+  retrieval_weight: 0.35
+  user_weight: 0.65
+cache_dir: ./cache
+device: cuda
+attn_implementation: eager

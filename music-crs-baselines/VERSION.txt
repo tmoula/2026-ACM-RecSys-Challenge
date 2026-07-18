@@ -1,0 +1,2 @@
+baselines-colab-2026-06-22-hybrid-rerank
+Hybrid pool 1000 + BM25/RRF LambdaMART features + retrain/eval scripts.

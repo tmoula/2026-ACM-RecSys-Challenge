@@ -1,0 +1,2 @@
+evaluator-v8-2026-06-21
+Catalog diversity verifier + devset eval (top-repeat track report, session dedup check)

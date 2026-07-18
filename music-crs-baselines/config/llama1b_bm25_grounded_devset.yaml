@@ -1,0 +1,24 @@
+lm_type: meta-llama/Llama-3.2-1B-Instruct
+retrieval_type: bm25
+test_dataset_name: talkpl-ai/TalkPlayData-Challenge-Dataset
+item_db_name: talkpl-ai/TalkPlayData-Challenge-Track-Metadata
+user_db_name: talkpl-ai/TalkPlayData-Challenge-User-Metadata
+track_split_types:
+- all_tracks
+user_split_types:
+- all_users
+corpus_types:
+- track_name
+- artist_name
+- album_name
+- tag_list
+- release_date
+retrieve_topk: 20
+final_topk: 20
+include_user_profile_in_retrieval: true
+response_topk: 3
+generation_mode: grounded
+max_response_tokens: 160
+cache_dir: ./cache
+device: cuda
+attn_implementation: eager

@@ -1,0 +1,45 @@
+lm_type: gpt-4o-mini
+retrieval_type: dense
+test_dataset_name: talkpl-ai/TalkPlayData-Challenge-Blind-A
+item_db_name: talkpl-ai/TalkPlayData-Challenge-Track-Metadata
+user_db_name: talkpl-ai/TalkPlayData-Challenge-User-Metadata
+track_split_types:
+- all_tracks
+user_split_types:
+- all_users
+corpus_types:
+- track_name
+- artist_name
+- album_name
+- tag_list
+- release_date
+retrieve_topk: 200
+final_topk: 20
+include_user_profile_in_retrieval: true
+response_topk: 3
+generation_mode: gpt_curator
+max_response_tokens: 160
+global_diversity: true
+diversity_kwargs:
+  global_penalty: 2.0
+  max_global_allowed: 3
+reranker_type: lambdamart
+reranker_kwargs:
+  model_path: ./cache/reranker/lambdamart_model.txt
+  popularity_penalty: 0.2
+lm_kwargs:
+  model_name: gpt-4o-mini
+  temperature: 0.90
+  top_p: 0.92
+  frequency_penalty: 1.2
+  presence_penalty: 1.5
+  fewshot_pool_path: ./cache/generation/fewshot_pool.json
+  num_fewshot: 3
+retrieval_kwargs:
+  model_name: ./checkpoints/bge-talkplay-v5-bs32
+  max_length: 512
+  query_prefix: "Represent this sentence for searching relevant passages: "
+  passage_prefix: ""
+cache_dir: ./cache
+device: cuda
+attn_implementation: eager
