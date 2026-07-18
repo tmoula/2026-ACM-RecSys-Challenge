@@ -20,11 +20,17 @@ dist/
 
 # Trained models and generated experiment data
 **/checkpoints/
-**/exp/
+**/exp/inference/
+**/exp/scores/
+**/exp/training/
 **/inference/
 *.safetensors
 *.pt
 *.pth
+
+# Keep shipped ground-truth defaults used by training/eval scripts
+!**/exp/ground_truth/
+!**/exp/ground_truth/**
 
 # Generated Colab and submission archives
 *.zip
