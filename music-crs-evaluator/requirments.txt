@@ -1,5 +1,0 @@
-datasets
-pandas
-numpy
-scipy
-google-genai
